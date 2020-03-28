@@ -1,23 +1,12 @@
-import { DONE_CHECK } from "../actions/actionTypes";
+import {
+  DONE_CHECK,
+  DELETE_ALL,
+  DELETE_ITEM,
+  ADD_ITEM
+} from "../actions/actionTypes";
 
 const initialState = {
-  list: [
-    {
-      id: 1,
-      name: "Play Video Games",
-      done: false
-    },
-    {
-      id: 2,
-      name: "Study Redux",
-      done: false
-    },
-    {
-      id: 3,
-      name: "Weird Checkbox",
-      done: false
-    }
-  ]
+  list: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -25,11 +14,30 @@ const reducer = (state = initialState, action) => {
     case DONE_CHECK:
       const list = action.payload;
       list.done = !list.done;
-      console.log(list);
       return {
         ...state,
         list: [...state.list]
       };
+    case DELETE_ALL: {
+      return {
+        ...state,
+
+        list: state.list.filter(list => list.done === false)
+      };
+    }
+    case DELETE_ITEM: {
+      return {
+        ...state,
+
+        list: state.list.filter(list => list !== action.payload)
+      };
+    }
+    case ADD_ITEM: {
+      return {
+        ...state,
+        list: [...state.list, action.payload]
+      };
+    }
     default:
       return state;
   }

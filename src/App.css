@@ -1,7 +1,21 @@
 .App {
   text-align: center;
 }
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+}
 
+p {
+  color: white;
+  font-style: oblique;
+  text-size-adjust: 0.56;
+}
+h5 {
+  color: white;
+  font-style: oblique;
+  font-size: 18px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
