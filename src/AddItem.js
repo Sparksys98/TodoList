@@ -24,7 +24,7 @@ class AddItem extends Component {
 
   render() {
     return (
-      <div className="col-6 mx-auto">
+      <div className="col-4 mx-auto">
         <div className="input-group input-group-lg my-3">
           <input
             type="text"
@@ -38,7 +38,7 @@ class AddItem extends Component {
           />
           <div className="input-group-append">
             <button
-              className="btn btn-info"
+              className="btn btn-info btn-circle btn-circle-sm"
               type="button"
               id="add-button"
               onClick={this.submitItem}
